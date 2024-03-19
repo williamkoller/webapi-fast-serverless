@@ -1,0 +1,16 @@
+service: my-service
+frameworkVersion: '3'
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+functions:
+  createData:
+    handler: src/handler.createData
+    events:
+      - http:
+          path: /create-data
+          method: post
